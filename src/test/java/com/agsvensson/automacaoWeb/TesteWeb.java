@@ -1,6 +1,7 @@
 package com.agsvensson.automacaoWeb;
 
 import com.agsvensson.core.Driver;
+import com.agsvensson.enums.Browser;
 import com.agsvensson.pages.CursoPage;
 import com.agsvensson.pages.PrincipalPage;
 import org.junit.After;
@@ -18,7 +19,7 @@ public class TesteWeb {
 
     @Before
     public void inicializaTeste() {
-        driverWeb = new Driver("chrome");
+        driverWeb = new Driver(Browser.CHROME);
         driver = driverWeb.getDriver();
         driver.get("https://www.chronosacademy.com.br");
         principalPage = new PrincipalPage(driver);
