@@ -1,5 +1,6 @@
 package com.agsvensson.maps;
 
+import org.bouncycastle.pqc.crypto.newhope.NHOtherInfoGenerator;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -10,14 +11,16 @@ public class LoginMap {
     public WebElement btnFechar;
     @FindBy(css = ".PopUp")
     public WebElement divFecharModal;
-    @FindBy(css = "input[name='username']")
+    @FindBy(css = "*[name='username']")
     public WebElement inpUserName;
-    @FindBy(css = "input[name='password']")
+    @FindBy(css = "*[name='password']")
     public WebElement inpPassword;
-    @FindBy(xpath = "(//button[normalize-space()='SIGN IN'])")
+    @FindBy(css = "#sign_in_btnundefined")
     public WebElement btnSignIn;
-    @FindBy(xpath = "//input[@name='remember_me']")
+    @FindBy(css = "*[name='remember_me']")
     public WebElement inpRemember;
     @FindBy(linkText = "CREATE NEW ACCOUNT")
     public WebElement linkCreateAccount;
+    @FindBy(css = ".loader")
+    public WebElement divLoader;
 }

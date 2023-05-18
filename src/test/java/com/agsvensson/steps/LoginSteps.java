@@ -1,7 +1,9 @@
 package com.agsvensson.steps;
 
 import com.agsvensson.core.Driver;
+import com.agsvensson.enums.Browser;
 import com.agsvensson.pages.LoginPage;
+import com.agsvensson.pages.NewAccountPage;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.pt.Dado;
@@ -15,7 +17,7 @@ public class LoginSteps {
     LoginPage loginPage;
     @Before
     public void iniciaNavegador() {
-        new Driver("chrome");
+        new Driver(Browser.CHROME);
     }
 
     @Dado("que a modal esteja sendo exibida")
@@ -23,6 +25,8 @@ public class LoginSteps {
         Driver.getDriver().get("https://advantageonlineshopping.com/");
         loginPage = new LoginPage();
         loginPage.clickBtnLogin();
+        loginPage.visibilityOfBtnFechar();
+        loginPage.aguardaLoader();
     }
 
     @Quando("for realizado um clique fora da modal")
@@ -51,7 +55,8 @@ public class LoginSteps {
 
     @Entao("a pagina Create New Account deve ser exibida")
     public void aPaginaCreateNewAccountDeveSerExibida() {
-
+        NewAccountPage newAccountPage = new NewAccountPage();
+        Assert.assertEquals("CREATE ACCOUNT", newAccountPage.getTxtNewAccount());
     }
 
     @Quando("os campos de login forem preenchidos da seguinte forma")
