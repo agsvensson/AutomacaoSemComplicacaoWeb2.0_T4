@@ -1,4 +1,5 @@
 #language:pt
+@login
 Funcionalidade: Realizar login
 
   Contexto:
@@ -19,6 +20,7 @@ Funcionalidade: Realizar login
     Quando for realizado um clique no link Create New Account
     Entao a pagina Create New Account deve ser exibida
 
+  @loginComSucesso
   Esquema do Cenario: Realizar login com <identificacao>
     Quando os campos de login forem preenchidos da seguinte forma
       | login    | <login>    |
@@ -29,10 +31,10 @@ Funcionalidade: Realizar login
 
     Exemplos:
       | identificacao       | login   | password | remember |
-      | campos obrigatorios | chronos | senha    | false    |
-      | todos os campos     | chronos | senha    | true     |
+      | campos obrigatorios | chronos | Senha123 | false    |
+      | todos os campos     | chronos | Senha123 | true     |
 
-
+  @loginInvalido
   Esquema do Cenario: Realizar login com <identificacao>
     Quando os campos de login forem preenchidos da seguinte forma
       | login    | <login>    |
@@ -43,7 +45,7 @@ Funcionalidade: Realizar login
 
     Exemplos:
       | identificacao    | login    | password | remember |
-      | usuario invalido | invalido | senha    | false    |
+      | usuario invalido | invalido | Senha123 | false    |
       | senha invalida   | chronos  | invalido | false    |
 
   @dadosEmBranco
@@ -56,5 +58,5 @@ Funcionalidade: Realizar login
 
     Exemplos:
       | identificacao     | login   | password | remember |
-      | usuario em branco |         | senha    | false    |
+      | usuario em branco |         | Senha123 | false    |
       | senha em branco   | chronos |          | false    |
