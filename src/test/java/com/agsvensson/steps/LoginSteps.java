@@ -109,4 +109,11 @@ public class LoginSteps {
         Driver.getDriver().quit();
     }
 
+    @Dado("que esteja logado no sistema com")
+    public void queEstejaLogadoNoSistemaCom(Map<String, String> map) throws IOException {
+        queAModalEstejaSendoExibida();
+        osCamposDeLoginForemPreenchidosDaSeguinteForma(map);
+        forRealizadoOCliqueNoBotaoSignIn();
+        deveSerPossivelLogarNoSistema();
+    }
 }
